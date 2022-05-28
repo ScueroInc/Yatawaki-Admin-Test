@@ -1,0 +1,33 @@
+{
+    "/api/v1/user/*": {
+    "target": "http://192.168.18.8:8081/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+    },
+    "/api/v1/avatar/*": {
+    "target": "http://192.168.18.8:8081/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+    },
+    "/api/v1/achievement/*": {
+    "target": "http://192.168.18.8:8081/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+    },
+    "/api/v1/composer/*": {
+    "target": "http://192.168.18.8:8081/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+    },
+    "/api/v1/unlockable/*": {
+    "target": "http://192.168.18.8:8081/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+    }
+                          
+}

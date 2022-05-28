@@ -1,0 +1,117 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'COMPOSER.REGISTER' | translate }}</h2>
+<br />
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="insertComposer()" class="center">
+      <!--*************** ATTRIBUTE 2 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="name" class="col-sm-5 col-form-label">
+          {{ 'NAME' | translate }} :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }} "
+            required
+            [(ngModel)]="composer.name"
+          />
+        </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+      </div>
+      <!--*************** END ATTRIBUTE 2 ***************-->
+      <!--*************** ATTRIBUTE 3 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="birthDate" class="col-sm-5 col-form-label">
+          {{ 'BIRTHDATE' | translate }} :
+        </label>
+        <div class="col-sm-8">
+          <input
+            matInput 
+            type="birthDate"
+            class="form-control"
+            id="birthDate"
+            name="birthDate"
+            placeholder="birthDate"
+            required
+            [matDatepicker]="picker"
+            [(ngModel)]="composer.birthDate"
+          />
+
+        </div>
+        <div class="col-sm-2">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputBirthDate('birthDate', 'flexSwitchCheckDefaultC2')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+      </div>
+      <!--*************** END ATTRIBUTE 3 ***************-->
+      <!--*************** ATTRIBUTE 4 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="deathDate" class="col-sm-5 col-form-label"> {{ 'DEATHDATE' | translate }} : </label>
+        <div class="col-sm-8">
+          
+          <input
+            matInput 
+            type="deathDate"
+            class="form-control"
+            id="deathDate"
+            name="deathDate"
+            placeholder="deathDate"
+            required
+            [matDatepicker]="picker2"
+            [(ngModel)]="composer.deathDate"
+          />
+        </div>
+        <div class="col-sm-2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputDeathDate('deathDate', 'flexSwitchCheckDefaultC3')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+      </div>
+      <!--*************** END ATTRIBUTE 4 ***************-->
+      <!--*************** ATTRIBUTE 5 ***************-->
+      <!--*************** END ATTRIBUTE 5 ***************-->
+      <!--*************** ATTRIBUTE 6 ***************-->
+      <!--*************** END ATTRIBUTE 6 ***************-->
+      <!--*************** ATTRIBUTE 7 ***************-->
+      <!--*************** END ATTRIBUTE 7 ***************-->
+      <!--*************** ATTRIBUTE 8 ***************-->
+      <!--*************** END ATTRIBUTE 8 ***************-->
+      <!--*************** ATTRIBUTE 9 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+        <div class="col-sm-10">
+          <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
+            <option [value]="0" hidden selected>Activo</option>
+            <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+          </select>
+        </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+      </div>
+      <!--*************** END ATTRIBUTE 9 ***************-->
+      <!--*************** ATTRIBUTE 9 ***************-->
+      <!--*************** END ATTRIBUTE 9 ***************-->
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-4 mx-auto">
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>

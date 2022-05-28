@@ -1,0 +1,138 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'COMPOSER.UPDATE' | translate }}</h2>
+<br />
+<div class="container">
+  <div class="row center">
+    <form (ngSubmit)="changeComposer()">
+      <div *ngIf="composer">
+        <!--*************** ATTRIBUTE 1 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="id" class="col-sm-5 col-form-label">
+              Id :
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="id"
+                required
+                [(ngModel)]="composer.idComposer"
+                disabled
+              />
+            </div>
+        </div>
+        <div class="form-group mb-3 row">
+          <label for="name" class="col-sm-5 col-form-label">
+            {{ 'NAME' | translate }} :
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="{{ 'EXAMPLE.NAME' | translate }}"
+              required
+              [(ngModel)]="composer.name"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 1 ***************-->
+        <!--*************** ATTRIBUTE 2 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="birthDate" class="col-sm-5 col-form-label">
+              {{ 'BIRTHDATE' | translate }} :
+            </label>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                id="birthDate"
+                name="birthDate"
+                placeholder="Birth Date"
+                required
+                [matDatepicker]="picker"
+                [(ngModel)]="composer.birthDate"
+              />
+            </div>
+            <div class="col-sm-2">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputBirthDate('birthDate', 'flexSwitchCheckDefaultC2')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 2 ***************-->
+        <!--*************** ATTRIBUTE 3 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="deathDate" class="col-sm-5 col-form-label">
+              {{ 'DEATHDATE' | translate }} :
+            </label>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                id="deathDate"
+                name="deathDate"
+                placeholder="Composer Death Date"
+                required
+                [matDatepicker]="picker2"
+                [(ngModel)]="composer.deathDate"
+              />
+            </div>
+            <div class="col-sm-2">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputDeathDate('deathDate', 'flexSwitchCheckDefaultC3')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 3 ***************-->
+        <!--*************** ATTRIBUTE 4 ***************-->
+        <!--*************** END ATTRIBUTE 4 ***************-->
+        <!--*************** ATTRIBUTE 5 ***************-->
+
+        <!--*************** END ATTRIBUTE 5 ***************-->
+        <!--*************** ATTRIBUTE 6 ***************-->
+        <!--*************** END ATTRIBUTE 6 ***************-->
+        <!--*************** ATTRIBUTE 7 ***************-->
+        <!--*************** END ATTRIBUTE 7 ***************-->
+        <!--*************** ATTRIBUTE 8 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
+              <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+            </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 8 ***************-->
+        <!--*************** ATTRIBUTE 9 ***************-->
+
+        <!--*************** END ATTRIBUTE 9 ***************-->
+      </div>
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-4 mx-auto">
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>
+
+
+

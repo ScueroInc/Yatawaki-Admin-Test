@@ -1,0 +1,21 @@
+.floatR{
+    margin-top: 10px;
+}
+
+.buttons{
+    max-width: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    display: flex;
+}
+
+.d-grid{
+    display: block;
+}
+mat-icon{
+    height: min-content;
+    width: min-content;
+}

@@ -1,0 +1,296 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'SYMPHONY.UPDATE' | translate }}</h2>
+<br />
+<div class="container">
+  <div class="row center">
+    <form (ngSubmit)="changeSymphony()">
+      <div *ngIf="symphony">
+        <!--*************** ATTRIBUTE 1 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="id" class="col-sm-5 col-form-label">
+              Id :
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="id"
+                required
+                [(ngModel)]="symphony.idUnlockable"
+                disabled
+              />
+            </div>
+        </div>
+        <div class="form-group mb-3 row">
+          <label for="name" class="col-sm-5 col-form-label">
+            {{ 'NAME' | translate }}:
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="nameC"
+              name="name"
+              placeholder="{{ 'EXAMPLE.NAME' | translate }}"
+              required
+              [(ngModel)]="symphony.name"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('nameC', 'flexSwitchCheckDefaultC')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 1 ***************-->
+        <!--*************** ATTRIBUTE 2 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="description" class="col-sm-5 col-form-label">
+            {{ 'DESCRIPTION' | translate }} :
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="descriptionC"
+              name="description"
+              placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }}"
+              required
+              [(ngModel)]="symphony.description"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputDescription('descriptionC', 'flexSwitchCheckDefaultC2')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 2 ***************-->
+        <!--*************** ATTRIBUTE 3 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="rareness" class="col-sm-5 col-form-label">
+            {{ 'RARENESS' | translate }} :
+          </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="rareness"  name="rareness" [(ngModel)]="symphony.rareness">
+              <option *ngFor="let rareness of rarenesss" value="{{rareness.value}}" selected>{{rareness.description}}</option>
+            </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputRareness('rareness', 'flexSwitchCheckDefaultC3')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 3 ***************-->
+        <!--*************** ATTRIBUTE 4 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="unlockerType" class="col-sm-5 col-form-label"> {{ 'UNLOCKERTYPE' | translate }} : </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="symphony.unlockerType">
+              <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}" selected>{{unlockerType.description}}</option>
+            </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputUnlockerType('unlockerType', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 4 ***************-->
+        <!--*************** ATTRIBUTE 5 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="unlockerValue" class="col-sm-5 col-form-label">
+            {{ 'UNLOCKERVALUE' | translate }} :
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="unlockerValue"
+              name="unlockerValue"
+              placeholder="{{ 'EXAMPLE.UNLOCKERVALUE' | translate }}"
+              required
+              [(ngModel)]="symphony.unlockerValue"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC15" (change)="nullInputUnlockerValue('unlockerValue', 'flexSwitchCheckDefaultC15')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 5 ***************-->
+        <!--*************** ATTRIBUTE 6 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="coinsCost" class="col-sm-5 col-form-label">
+            {{ 'COINSCOST' | translate }} :
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="coinsCost"
+              name="coinsCost"
+              placeholder="{{ 'EXAMPLE.COINSCOST' | translate }}"
+              required
+              [(ngModel)]="symphony.coinsCost"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5" (change)="nullInputCoinsCost('coinsCost', 'flexSwitchCheckDefaultC5')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 6 ***************-->
+        <!--*************** ATTRIBUTE 7 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="icon" class="col-sm-5 col-form-label">
+            {{ 'ICON' | translate }} :
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="iconC"
+              name="icon"
+              placeholder="{{ 'EXAMPLE.ICON' | translate }}"
+              required
+              [(ngModel)]="symphony.icon"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC6" (change)="nullInputIcon('iconC', 'flexSwitchCheckDefaultC6')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 7 ***************-->
+        <!--*************** ATTRIBUTE 8 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="status"  name="status" [(ngModel)]="symphony.status">
+              <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+            </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC7" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC7')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 8 ***************-->
+        <!--*************** ATTRIBUTE 9 ***************-->
+        <!--*************** END ATTRIBUTE 9 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="composerId" class="col-sm-5 col-form-label">
+              {{ 'COMPOSER.NAME' | translate }} :
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="idComposer"  name="idComposer" [(ngModel)]="symphony.idComposer">
+                <option *ngFor="let composer of composers" value="{{composer.idComposer}}">{{composer.name}}</option>
+              </select>
+            </div>
+          </div>
+          <!--*************** END ATTRIBUTE 9 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="year" class="col-sm-5 col-form-label"> {{ 'YEAR' | translate }} : </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="year"
+                name="year"
+                placeholder="{{ 'EXAMPLE.YEAR' | translate }}"
+                required
+                [(ngModel)]="symphony.year"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC8" (change)="nullInputYear('year', 'flexSwitchCheckDefaultC8')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+          <!--*************** END ATTRIBUTE 9 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="duration" class="col-sm-5 col-form-label"> {{ 'DURATION' | translate }} : </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="duration"
+                name="duration"
+                placeholder="{{ 'EXAMPLE.DURATION' | translate }}"
+                required
+                [(ngModel)]="symphony.duration"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC9" (change)="nullInputDuration('duration', 'flexSwitchCheckDefaultC9')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+          <!--*************** END ATTRIBUTE 9 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="type" class="col-sm-5 col-form-label"> {{ 'TYPE' | translate }} : </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="type"
+                name="type"
+                placeholder="{{ 'EXAMPLE.TYPE' | translate }}"
+                required
+                [(ngModel)]="symphony.type"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC10" (change)="nullInputType('type', 'flexSwitchCheckDefaultC10')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+          <!--*************** END ATTRIBUTE 9 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="previewTrack" class="col-sm-5 col-form-label"> {{ 'PREVIEWTRACK' | translate }} : </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="previewTrack"
+                name="previewTrack"
+                placeholder="{{ 'EXAMPLE.PREVIEWTRACK' | translate }}"
+                required
+                [(ngModel)]="symphony.previewTrack"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC11" (change)="nullInputPreviewTrack('previewTrack', 'flexSwitchCheckDefaultC11')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+           <!--*************** END ATTRIBUTE 9 ***************-->
+           <div class="form-group mb-3 row">
+            <label for="initialBpm" class="col-sm-5 col-form-label"> {{ 'INITIALBPM' | translate }} : </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="initialBpm"
+                name="initialBpm"
+                placeholder="{{ 'EXAMPLE.INITIALBPM' | translate }}"
+                required
+                [(ngModel)]="symphony.initialBpm"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC12" (change)="nullInputInitialBpm('initialBpm', 'flexSwitchCheckDefaultC12')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+      </div>
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-4 mx-auto">
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>
+
+

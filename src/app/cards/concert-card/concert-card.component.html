@@ -1,0 +1,163 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'CONCERT.NEW' | translate }}</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="d-grid col-md gap-3">
+      <form class="form-floating" (ngSubmit)="searchConcertById()">
+        <label for="id">{{ 'ENTER' | translate }}:</label>
+        <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="id"
+          placeholder="{{ 'ENTER' | translate }}" />
+        <div class="col-2 mx-auto p-2">
+          <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem" *ngIf="show">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{concert.playedDate}}</mat-card-title>
+              <mat-card-subtitle>{{concert.points}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div>
+                <p>
+                  Accuracy Rate: {{concert.accuracyRate}}
+                </p>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button mat-button (click)="showChangeForm()">{{ 'UPDATE' | translate }}</button>
+              <button mat-button mwlConfirmationPopover [popoverMessage]=" 'POPOVER' | translate " placement="right"
+                [confirmText]=" 'CONFIRM' | translate " [cancelText]=" 'CANCEL' | translate "
+                (confirm)="deleteConcert(concert)" (cancel)="cancelClicked = true" class="btn btn-outline-danger">{{
+                'DELETE' | translate }}</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="container" *ngIf="showChange">
+          <div class="row center">
+            <form (ngSubmit)="changeConcert()">
+              <div *ngIf="concert">
+                <div class="form-group mb-3 row">
+                  <label for="id" class="col-sm-5 col-form-label">
+                    Id :
+                  </label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id" name="id" placeholder="id" required
+                      [(ngModel)]="concert.idConcert" disabled />
+                  </div>
+                </div>
+                <!--*************** ATTRIBUTE 2 ***************-->
+                <div class="form-group mb-3 row">
+                  <label for="idUnlockable" class="col-sm-5 col-form-label"> {{ 'SYMPHONY.NAME' | translate }} :
+                  </label>
+                  <div class="col-sm-10">
+                    <select class="form-control" id="idUnlockable" name="idUnlockable" [(ngModel)]="concert.idSymphony">
+                      <option *ngFor="let symphony of symphonies" value="{{symphony.idUnlockable}}">{{symphony.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <!--*************** END ATTRIBUTE 2 ***************-->
+                <!--*************** ATTRIBUTE 3 ***************-->
+                <div class="form-group mb-3 row">
+                  <label for="playedDate" class="col-sm-5 col-form-label">
+                    {{ 'PLAYEDDATE' | translate }} :
+                  </label>
+                  <div class="col-sm-8">
+                    <input matInput type="playedDate" class="form-control" id="playedDate" name="playedDate"
+                      placeholder="playedDate" required [matDatepicker]="picker" [(ngModel)]="concert.playedDate" />
+                  </div>
+                  <div class="col-sm-2">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </div>
+                  <div class="form-check form-switch col-sm-2 center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC"
+                      (change)="nullInputPlayedDate('playedDate', 'flexSwitchCheckDefaultC')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+                  </div>
+                </div>
+                <!--*************** END ATTRIBUTE 3 ***************-->
+                <!--*************** END ATTRIBUTE 4 ***************-->
+                <div class="form-group mb-3 row">
+                  <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+                  <div class="col-sm-10">
+                    <select class="form-control" id="status" name="status" [(ngModel)]="concert.status">
+                      <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+                    </select>
+                  </div>
+                  <div class="form-check form-switch col-sm-2 center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2"
+                      (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC2')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+                  </div>
+                </div>
+                <div class="form-group mb-3 row">
+                  <label for="idUser" class="col-sm-5 col-form-label"> {{ 'USER.NAME' | translate }}: </label>
+                  <div class="col-sm-10">
+                    <select class="form-control" id="idUser" name="idUser" [(ngModel)]="concert.idUser">
+                      <option *ngFor="let user of users" value="{{user.idUser}}">{{user.nickname}}</option>
+                    </select>
+                  </div>
+                </div>
+                <!--*************** ATTRIBUTE 4 ***************-->
+                <div class="form-group mb-3 row">
+                  <label for="points" class="col-sm-5 col-form-label">
+                    {{ 'POINTS' | translate }}:
+                  </label>
+                  <div class="col-sm-10">
+                    <input matInput type="points" class="form-control" id="points" name="points"
+                      placeholder="{{ 'EXAMPLE.POINTS' | translate }}" required [(ngModel)]="concert.points" />
+                  </div>
+                  <div class="form-check form-switch col-sm-2 center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3"
+                      (change)="nullInputPoints('points', 'flexSwitchCheckDefaultC3')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+                  </div>
+                </div>
+                <!--*************** END ATTRIBUTE 4 ***************-->
+                <div class="form-group mb-3 row">
+                  <label for="accuracyRate" class="col-sm-5 col-form-label">
+                    {{ 'ACCURACYRATE' | translate }} :
+                  </label>
+                  <div class="col-sm-10">
+                    <input matInput type="accuracyRate" class="form-control" id="accuracyRate" name="accuracyRate"
+                      placeholder="{{ 'EXAMPLE.ACCURACYRATE' | translate }}" required
+                      [(ngModel)]="concert.accuracyRate" />
+                  </div>
+                  <div class="form-check form-switch col-sm-2 center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4"
+                      (change)="nullInputAccuracyRate('accuracyRate', 'flexSwitchCheckDefaultC4')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+                  </div>
+                </div>
+                <!--*************** END ATTRIBUTE 4 ***************-->
+                <div class="form-group mb-3 row">
+                  <label for="gesturesCompleted" class="col-sm-5 col-form-label">
+                    {{ 'GESTURECOMPLETED' | translate }} :
+                  </label>
+                  <div class="col-sm-10">
+                    <input matInput type="gesturesCompleted" class="form-control" id="gesturesCompleted"
+                      name="gesturesCompleted" placeholder="{{ 'EXAMPLE.GESTURECOMPLETED' | translate }}" required
+                      [(ngModel)]="concert.gesturesCompleted" />
+                  </div>
+                  <div class="form-check form-switch col-sm-2 center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5"
+                      (change)="nullInputGesturesCompleted('gesturesCompleted', 'flexSwitchCheckDefaultC5')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+                  </div>
+                </div>
+              </div>
+              <!--*************** BUTTON ***************-->
+              <div class="d-grid col-4 mx-auto">
+                <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+              </div>
+              <!--*************** END BUTTON ***************-->
+            </form>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

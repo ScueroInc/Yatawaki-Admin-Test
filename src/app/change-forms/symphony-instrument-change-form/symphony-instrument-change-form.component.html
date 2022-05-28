@@ -1,0 +1,111 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'SYMPHONYINSTRUMENT' | translate }}</h2>
+<br />
+<div class="container">
+  <div class="row center">
+    <form (ngSubmit)="changeSymphonyInstrument()">
+      <div *ngIf="symphonyInstrument">
+        <!--*************** ATTRIBUTE 1 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="id" class="col-sm-5 col-form-label">
+              Id :
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="number"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="id"
+                required
+                [(ngModel)]="symphonyInstrument.idSymphonyInstrument"
+                disabled
+              />
+            </div>
+        </div>
+        <div class="form-group mb-3 row">
+          <label for="track" class="col-sm-5 col-form-label">
+            {{ 'TRACK' | translate }}:
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="track"
+              name="track"
+              placeholder="{{ 'EXAMPLE.TRACK' | translate }}"
+              required
+              [(ngModel)]="symphonyInstrument.track"
+            />
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputTrack('track', 'flexSwitchCheckDefaultC')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 1 ***************-->
+        <!--*************** ATTRIBUTE 2 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="position" class="col-sm-5 col-form-label">
+              {{ 'POSITION' | translate }}:
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="position"
+                name="position"
+                placeholder="{{ 'EXAMPLE.POSITION' | translate }}"
+                required
+                [(ngModel)]="symphonyInstrument.position"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputPosition('position', 'flexSwitchCheckDefaultC2')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 2 ***************-->
+        <!--*************** ATTRIBUTE 3 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="idInstrument" class="col-sm-5 col-form-label"> {{ 'INSTRUMENT.NAME' | translate }} : </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="idInstrument"  name="idInstrument" [(ngModel)]="symphonyInstrument.idInstrument">
+                <option *ngFor="let instrument of instruments" value="{{instrument.idInstrument}}">{{instrument.name}}</option>
+              </select>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 3 ***************-->
+        <!--*************** ATTRIBUTE 4 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="idUnlockable" class="col-sm-5 col-form-label"> {{ 'SYMPHONY.NAME' | translate }} : </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="idUnlockable"  name="idUnlockable" [(ngModel)]="symphonyInstrument.idSymphony">
+                <option *ngFor="let symphony of symphonies" value="{{symphony.idUnlockable}}">{{symphony.name}}</option>
+              </select>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 4 ***************-->
+        <!--*************** ATTRIBUTE 6 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="status"  name="status" [(ngModel)]=" symphonyInstrument.status">
+              <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+            </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 6 ***************-->
+      </div>
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-4 mx-auto">
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>

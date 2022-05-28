@@ -1,0 +1,40 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'UNLOCKABLE.SEARCH' | translate }} </h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="d-grid col-md gap-3">
+      <form class="form-floating" (ngSubmit)="searchUnlockableById()">
+        <label for="id">{{ 'ENTER' | translate }}:</label>
+        <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="id"
+          placeholder="{{ 'ENTER' | translate }}" />
+        <div class="col-2 mx-auto p-2">
+          <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem" *ngIf="show">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{unlockable.name}}</mat-card-title>
+              <mat-card-subtitle>{{unlockable.rareness}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{unlockable.icon}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <div>
+                <p>
+                  {{unlockable.description}}
+                </p>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button mwlConfirmationPopover [popoverMessage]=" 'POPOVER' | translate " placement="right"
+                [confirmText]=" 'CONFIRM' | translate " [cancelText]=" 'CANCEL' | translate "
+                (confirm)="deleteUnlockable(unlockable)" (cancel)="cancelClicked = true"
+                class="btn btn-outline-danger">{{ 'DELETE' | translate }}</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

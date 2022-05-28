@@ -1,0 +1,364 @@
+<mat-toolbar>
+Yatawaki
+<span class="flexExpand"></span>
+<select #langSelect class="custom-select" (change)="changeLang(langSelect.value)">
+  <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
+</select>
+<span class="sep"></span>
+<button mat-raised-button color="warn" (click)="logout()">{{ 'LOGOUT' | translate }}</button>
+</mat-toolbar>
+    
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'AVATAR.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="avatar">
+              {{ 'AVATAR.LIST' | translate }}
+            </a>
+            <a routerLink="avatar-new-form">
+              <p>
+                {{ 'AVATAR.NEW' | translate }}   
+              </p>
+            </a>
+            <a routerLink="avatar-card">
+                <p>
+                  {{ 'AVATAR.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'ACHIEVEMENT.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="achievement">
+              <p>
+                {{ 'ACHIEVEMENT.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="achievement-new-form">
+              <p>
+                {{ 'ACHIEVEMENT.NEW' | translate }} 
+                </p>
+            </a>
+            <a routerLink="achievement-card">
+              <p>
+                {{ 'ACHIEVEMENT.SEARCH' | translate }} 
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'COMPOSER.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="composer">
+              <p>
+                {{ 'COMPOSER.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="composer-new-form">
+              <p>
+                {{ 'COMPOSER.NEW' | translate }}  
+                </p>
+            </a>
+            <a routerLink="composer-card">
+             <p>
+              {{ 'COMPOSER.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'UNLOCKABLE.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="unlockable">
+              <p>
+                {{ 'UNLOCKABLE.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="unlockable-card">
+              <p>
+                {{ 'UNLOCKABLE.SEARCH' | translate }}  
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'SYMPHONY.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="symphony">
+              <p>
+                {{ 'SYMPHONY.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="symphony-new-form">
+              <p>
+                {{ 'SYMPHONY.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="symphony-card">
+              <p>
+                {{ 'SYMPHONY.SEARCH' | translate }}  
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'SYMPHONYGESTURE.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="symphony-gesture">
+              <p>
+                {{ 'SYMPHONYGESTURE.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="symphony-gesture-new-form">
+              <p>
+                {{ 'SYMPHONYGESTURE.NEW' | translate }} 
+                </p>
+            </a>
+            <a routerLink="symphony-gesture-card">
+              <p>
+                {{ 'SYMPHONYGESTURE.SEARCH' | translate }} 
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'SYMPHONYINSTRUMENT.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="symphony-instrument">
+              <p>
+                {{ 'SYMPHONYINSTRUMENT.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="symphony-instrument-new-form">
+              <p>
+                {{ 'SYMPHONYINSTRUMENT.NEW' | translate }}  
+                </p>
+            </a>
+            <a routerLink="symphony-instrument-card">
+              <p>
+                {{ 'SYMPHONYINSTRUMENT.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'GESTURE.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="gesture">
+              <p>
+                {{ 'GESTURE.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="gesture-new-form">
+              <p>
+                {{ 'GESTURE.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="gesture-card">
+              <p>
+                {{ 'GESTURE.SEARCH' | translate }}    
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'INSTRUMENT.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="instrument">
+              <p>
+                {{ 'INSTRUMENT.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="instrument-new-form">
+              <p>
+                {{ 'INSTRUMENT.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="instrument-card">
+              <p>
+                {{ 'INSTRUMENT.SEARCH' | translate }}    
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'USERSTATISTIC.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="user-statistic">
+              <p>
+                {{ 'USERSTATISTIC.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="user-statistic-new-form">
+              <p>
+                {{ 'USERSTATISTIC.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="user-statistic-card">
+              <p>
+                {{ 'USERSTATISTIC.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'USERUNLOCKABLE.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="user-unlockable">
+              <p>
+                {{ 'USERUNLOCKABLE.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="user-unlockable-new-form">
+              <p>
+                {{ 'USERUNLOCKABLE.NEW' | translate }} 
+                </p>
+            </a>
+            <a routerLink="user-unlockable-card">
+              <p>
+                {{ 'USERUNLOCKABLE.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'USER.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="user">
+              <p>
+                {{ 'USER.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="user-new-form">
+              <p>
+                {{ 'USER.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="user-card">
+              <p>
+                {{ 'USER.SEARCH' | translate }}  
+              </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'CONCERT.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="concert">
+              <p>
+                {{ 'CONCERT.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="concert-new-form">
+              <p>
+                {{ 'CONCERT.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="concert-card">
+              <p>
+                {{ 'CONCERT.NEW' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'RANK.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="rank">
+              <p>
+                {{ 'RANK.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="rank-new-form">
+              <p>
+                {{ 'RANK.NEW' | translate }}   
+                </p>
+            </a>
+            <a routerLink="rank-card">
+              <p>
+                {{ 'RANK.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ 'USERRANK.NAME' | translate }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="user-rank">
+              <p>
+                {{ 'USERRANK.LIST' | translate }}
+              </p>
+            </a>
+            <a routerLink="user-rank-new-form">
+              <p>
+                {{ 'USERRANK.NEW' | translate }}  
+                </p>
+            </a>
+            <a routerLink="user-rank-card">
+              <p>
+                {{ 'USERRANK.SEARCH' | translate }}   
+                </p>
+            </a>  
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-drawer>
+    <div>
+        <button type="button" mat-button (click)="drawer.toggle()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+    <div class="example-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+    
+</mat-drawer-container>
+

@@ -1,0 +1,96 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'USERUNLOCKABLE.UPDATE' | translate }}</h2>
+<br />
+<div class="container">
+  <div class="row center">
+    <form (ngSubmit)="changeUserUnlockable()">
+      <div *ngIf="userUnlockable">
+        <!--*************** ATTRIBUTE 1 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="id" class="col-sm-5 col-form-label">
+              Id :
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="number"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="id"
+                required
+                [(ngModel)]="userUnlockable.idUserUnlockable"
+                disabled
+              />
+            </div>
+        </div>
+        <!--*************** END ATTRIBUTE 1 ***************-->
+        <!--*************** ATTRIBUTE 2 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="unlockedDate" class="col-sm-5 col-form-label">
+              {{ 'UNLOCKEDDATE' | translate }}:
+            </label>
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                id="unlockedDate"
+                name="unlockedDate"
+                placeholder="Unlocked Date"
+                required
+                [matDatepicker]="picker"
+                [(ngModel)]="userUnlockable.unlockedDate"
+              />
+            </div>
+            <div class="col-sm-2">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputUnlockedDate('unlockedDate', 'flexSwitchCheckDefaultC2')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 2 ***************-->
+        <!--*************** ATTRIBUTE 3 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="idUser" class="col-sm-5 col-form-label"> {{ 'USER.NAME' | translate }}: </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="idUser"  name="idUsert" [(ngModel)]="userUnlockable.idUser">
+                <option *ngFor="let user of users" value="{{user.idUser}}">{{user.nickname}}</option>
+              </select>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 3 ***************-->
+        <!--*************** ATTRIBUTE 4 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="idUnlockable" class="col-sm-5 col-form-label"> {{ 'UNLOCKABLE.NAME' | translate }}: </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="idUnlockable"  name="idUnlockable" [(ngModel)]="userUnlockable.idUnlockable">
+                <option *ngFor="let unlockable of unlockables" value="{{unlockable.idUnlockable}}">{{unlockable.name}}</option>
+              </select>
+            </div>
+          </div>
+        <!--*************** END ATTRIBUTE 4 ***************-->
+        <!--*************** ATTRIBUTE 6 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }}: </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="status"  name="status" [(ngModel)]=" userUnlockable.status">
+              <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+            </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 6 ***************-->
+      </div>
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-4 mx-auto">
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>

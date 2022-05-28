@@ -1,0 +1,43 @@
+.w20{
+    width: 20%;
+}
+
+.maxW40{
+    max-width: 40%;
+}
+
+.maxW48{
+    max-width: 48%;
+}
+
+.center {
+    display:block;
+    margin: auto;
+    width: 50%;
+}
+
+.floatL{
+    float: left;
+}
+
+.floatR{
+    margin-top: 10px;
+}
+
+.buttons{
+    max-width: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    display: flex;
+}
+
+.d-grid{
+    display: block;
+}
+mat-icon{
+    height: min-content;
+    width: min-content;
+}

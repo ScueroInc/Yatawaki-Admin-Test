@@ -1,0 +1,59 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'UNLOCKABLE.LIST' | translate }}</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">{{ 'NAME' | translate }}</th>
+        <th scope="col">{{ 'DESCRIPTION' | translate }}</th>
+        <th scope="col">{{ 'RARENESS' | translate }}</th>
+        <th scope="col">{{ 'UNLOCKERTYPE' | translate }}</th>
+        <th scope="col">{{ 'UNLOCKERVALUE' | translate }}</th>
+        <th scope="col">{{ 'COINSCOST' | translate }}</th>
+        <th scope="col">{{ 'ICON' | translate }}</th>
+        <th scope="col">{{ 'STATUS' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let unlockable of unlockables">
+        <tr>
+          <th scope="row">{{ unlockable.idUnlockable }}</th>
+          <td>{{ unlockable.name }}</td>
+          <td>{{ unlockable.description }}</td>
+          <td>{{ unlockable.rareness }}</td>
+          <td>{{ unlockable.unlockerType }}</td>
+          <td>{{ unlockable.unlockerValue }}</td>
+          <td>{{ unlockable.coinsCost }}</td>
+          <td class="w20">
+            <img
+              src="{{ unlockable.icon }}"
+              class="rounded mx-auto img-thumbnail thumbnail maxW40"
+            />
+          </td>
+          <td>{{ unlockable.status }}</td>
+          <td class="buttons" align="center">
+            <div class="d-grid gap-2 d-md-block">
+              <button 
+                type="submit"
+                mwlConfirmationPopover
+                [popoverMessage]=" 'POPOVER' | translate "
+                placement="left"
+                [confirmText]=" 'CONFIRM' | translate "
+                [cancelText]=" 'CANCEL' | translate "
+                (confirm)="deleteUnlockable(unlockable)"
+                (cancel)="cancelClicked = true"
+                class="btn btn-outline-danger col-md-12 justify-content-center align-items-center"
+                data-toggle="popover" title="Delete"
+              >
+              <mat-icon>clear</mat-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+

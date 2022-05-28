@@ -1,0 +1,118 @@
+<br />
+<h2 class="text-center text-uppercase">{{ 'RANK.UPDATE' | translate }} </h2>
+<br />
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="changeRank()" class="center">
+    <div *ngIf="rank">
+        <div class="form-group mb-3 row">
+            <label for="id" class="col-sm-5 col-form-label">
+              Id :
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="id"
+                required
+                [(ngModel)]="rank.idRank"
+                disabled
+              />
+            </div>
+        </div>
+        <div class="form-group mb-3 row">
+            <label for="name" class="col-sm-5 col-form-label">
+              {{ 'NAME' | translate }} :
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="{{ 'EXAMPLE.RANK' | translate }}"
+                required
+                [(ngModel)]="rank.name"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+          <!--*************** END ATTRIBUTE 2 ***************-->
+          <!--*************** ATTRIBUTE 3 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="level" class="col-sm-5 col-form-label">
+              {{ 'LEVEL' | translate }} :
+            </label>
+            <div class="col-sm-10">
+              <input
+                matInput 
+                type="level"
+                class="form-control"
+                id="level"
+                name="level"
+                placeholder="{{ 'EXAMPLE.LEVEL' | translate }}"
+                required
+                [(ngModel)]="rank.level"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputLevel('level', 'flexSwitchCheckDefaultC2')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+          <!--*************** END ATTRIBUTE 3 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="maxExperience" class="col-sm-5 col-form-label">
+              {{ 'MAXEXPERIENCE' | translate }} :
+            </label>
+            <div class="col-sm-10">
+              <input
+                matInput 
+                type="maxExperience"
+                class="form-control"
+                id="maxExperience"
+                name="maxExperience"
+                placeholder="{{ 'EXAMPLE.MAXEXPERIENCE' | translate }}"
+                required
+                [(ngModel)]="rank.maxExperience"
+              />
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputMaxExperience('maxExperience', 'flexSwitchCheckDefaultC3')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+          <!--*************** ATTRIBUTE 4 ***************-->
+          <!--*************** END ATTRIBUTE 4 ***************-->
+          <div class="form-group mb-3 row">
+            <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="status"  name="status" [(ngModel)]="rank.status">
+                <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+              </select>
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
+              </div>
+          </div>
+    </div>
+      <!--*************** END ATTRIBUTE 9 ***************-->
+      <!--*************** ATTRIBUTE 9 ***************-->
+      <!--*************** END ATTRIBUTE 9 ***************-->
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-4 mx-auto">
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>
+
+
+
